@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Shoes - Diplomado de Liderazgo Femenino</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-white: #ffffff;
+            --color-magenta: #ea008a;
+            --color-navy: #23395e;
+            --color-yellow: #f8dd4e;
+            --color-green: #a8d249;
+            --color-blue-bright: #233dff;
+            --color-gray-light: #f5f5f5;
+            --color-text-dark: #333333;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--color-text-dark);
+            line-height: 1.6;
+            background-color: var(--color-white);
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, var(--color-navy) 0%, rgba(35, 57, 94, 0.95) 100%);
+            color: var(--color-white);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            cursor: pointer;
+        }
+
+        .logo span {
+            color: var(--color-magenta);
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            color: var(--color-white);
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        nav button:hover {
+            color: var(--color-magenta);
+        }
+
+        /* SECTIONS VISIBILITY */
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-navy);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--color-navy) 0%, rgba(35, 57, 94, 0.85) 50%, rgba(234, 0, 138, 0.05) 100%);
+            color: var(--color-white);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(234, 0, 138, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            color: var(--color-magenta);
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.95);
+        }
+
+        .alliance-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid var(--color-magenta);
+            color: var(--color-white);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--color-magenta);
+            color: var(--color-white);
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button:hover {
+            background: #d6007a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(234, 0, 138, 0.3);
+        }
+
+        /* PUNTO 4 */
+        .section-punto4 {
+            background: linear-gradient(135deg, rgba(35, 57, 94, 0.03) 0%, rgba(234, 0, 138, 0.03) 100%);
+            border-top: 4px solid var(--color-magenta);
+        }
+
+        .punto4-box {
+            background: var(--color-white);
+            border-left: 5px solid var(--color-magenta);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-radius: 8px;
+        }
+
+        .punto4-box h3 {
+            color: var(--color-navy);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .punto4-box p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: var(--color-magenta);
+            font-weight: 700;
+        }
+
+        /* TIMELINE */
+        .timeline {
+            position: relative;
+            padding: 3rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-magenta) 0%, var(--color-blue-bright) 50%, var(--color-green) 100%);
+        }
+
+        .timeline-item {
+            flex: 1;
+            position: relative;
+            padding-top: 80px;
+            text-align: center;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 50px;
+            height: 50px;
+            background: var(--color-white);
+            border: 4px solid var(--color-magenta);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .timeline-item:nth-child(2) .timeline-marker { border-color: var(--color-green); }
+        .timeline-item:nth-child(3) .timeline-marker { border-color: var(--color-blue-bright); }
+        .timeline-item:nth-child(4) .timeline-marker { border-color: var(--color-magenta); }
+
+        .timeline-content {
+            background: var(--color-white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--color-magenta);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:nth-child(2) .timeline-content { border-top-color: var(--color-green); }
+        .timeline-item:nth-child(3) .timeline-content { border-top-color: var(--color-blue-bright); }
+        .timeline-item:nth-child(4) .timeline-content { border-top-color: var(--color-magenta); }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .timeline-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-magenta);
+            margin-bottom: 0.4rem;
+        }
+
+        .timeline-item:nth-child(2) .timeline-label { color: var(--color-green); }
+        .timeline-item:nth-child(3) .timeline-label { color: var(--color-blue-bright); }
+
+        .timeline-date {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-navy);
+        }
+
+        .timeline-description {
+            color: #666;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* BENEFICIOS */
+        .section-benefits {
+            background: linear-gradient(135deg, rgba(35, 57, 94, 0.03) 0%, rgba(234, 0, 138, 0.03) 100%);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-card {
+            background: var(--color-white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--color-magenta);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:nth-child(2) { border-top-color: var(--color-green); }
+        .benefit-card:nth-child(3) { border-top-color: var(--color-yellow); }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            color: var(--color-navy);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card p {
+            color: #666;
+        }
+
+        /* GAMES SECTION */
+        .games-section {
+            background: var(--color-white);
+        }
+
+        .game-selection {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .game-card {
+            background: var(--color-white);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--color-magenta);
+        }
+
+        .game-card:nth-child(2) { border-top-color: var(--color-green); }
+        .game-card:nth-child(3) { border-top-color: var(--color-blue-bright); }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .game-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .game-card h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            color: var(--color-navy);
+            margin-bottom: 0.8rem;
+        }
+
+        .game-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .game-button {
+            display: inline-block;
+            background: var(--color-magenta);
+            color: var(--color-white);
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .game-card:nth-child(2) .game-button { background: var(--color-green); }
+        .game-card:nth-child(3) .game-button { background: var(--color-blue-bright); }
+
+        .game-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .game-container {
+            background: linear-gradient(135deg, rgba(35, 57, 94, 0.03) 0%, rgba(234, 0, 138, 0.03) 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .game-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--color-magenta);
+            padding-bottom: 1rem;
+        }
+
+        .game-header h2 {
+            color: var(--color-navy);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--color-magenta);
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            background: none;
+            font-size: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* QUIZ STYLES */
+        .quiz-progress {
+            background: var(--color-gray-light);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-magenta), var(--color-blue-bright), var(--color-green));
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .quiz-question {
+            background: var(--color-white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .quiz-question h3 {
+            color: var(--color-navy);
+            margin-bottom: 1rem;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .quiz-option {
+            background: var(--color-gray-light);
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--color-magenta);
+        }
+
+        .quiz-option.selected {
+            border-color: var(--color-magenta);
+            background: rgba(234, 0, 138, 0.1);
+        }
+
+        .quiz-option.correct {
+            border-color: var(--color-green);
+            background: rgba(168, 210, 73, 0.2);
+        }
+
+        .quiz-option.incorrect {
+            border-color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.2);
+        }
+
+        .quiz-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--color-magenta);
+            color: var(--color-white);
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-submit:hover:not(:disabled) {
+            background: #d6007a;
+        }
+
+        .quiz-submit:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* MODAL */
+        #puntosModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        #puntosModal.active {
+            display: block;
+        }
+
+        .modal-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--color-white);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid var(--color-magenta);
+            padding-bottom: 1rem;
+        }
+
+        .modal-header h2 {
+            color: var(--color-navy);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+        }
+
+        .close-btn {
+            background: var(--color-magenta);
+            color: var(--color-white);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        #puntosGrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .punto-card {
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 3px solid;
+            transition: all 0.3s ease;
+        }
+
+        .punto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--color-navy);
+            color: var(--color-white);
+            padding: 2rem;
+            text-align: center;
+            border-top: 4px solid var(--color-magenta);
+        }
+
+        footer p {
+            opacity: 0.9;
+        }
+
+        footer button {
+            display: inline-block;
+            margin-top: 1rem;
+            margin-right: 1rem;
+            background: var(--color-magenta);
+            color: var(--color-white);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        footer button:hover {
+            background: #d6007a;
+            transform: scale(1.05);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .section-title { font-size: 2rem; }
+            nav { display: none; }
+            .timeline { flex-direction: column; padding: 2rem 0 2rem 40px; }
+            .timeline::before { left: 20px; top: 0; width: 4px; height: 100%; }
+            .timeline-item { padding-top: 0; padding-left: 60px; text-align: left; }
+            .timeline-marker { left: -30px; }
+            #puntosGrid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo" onclick="showSection('landing')">Price Shoes<span> - Liderazgo</span></div>
+            <nav>
+                <button onclick="showSection('landing')">Landing</button>
+                <button onclick="showSection('games')">Juegos</button>
+                <button onclick="togglePuntos()">12 Puntos</button>
+                <button onclick="document.getElementById('formulario').scrollIntoView({behavior:'smooth'})">Postula</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SECCIÓN LANDING -->
+    <div id="landing" class="section active">
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Price Shoes<span> - Liderazgo</span><br>Diplomado de Liderazgo Femenino</h1>
+                <p class="subtitle">Una alianza estratégica entre Universidad Insurgentes, Santander y Dalia Empower</p>
+                <div class="alliance-badges">
+                    <div class="badge">🎓 Universidad Insurgentes</div>
+                    <div class="badge">💳 Santander</div>
+                    <div class="badge">✨ Dalia Empower</div>
+                </div>
+                <div style="margin-top: 2rem;">
+                    <button class="cta-button" onclick="showSection('games')">🎮 Demuestra tu Talento</button>
+                    <button class="cta-button" onclick="document.getElementById('formulario').scrollIntoView({behavior:'smooth'})" style="background: var(--color-green); margin-left: 1rem;">📝 Postúlate Ahora</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PUNTO 4 -->
+        <section class="section-punto4">
+            <div class="container">
+                <h2 class="section-title">El Compromiso del Líder</h2>
+                <p class="section-subtitle">La respuesta estratégica al Punto 4 de los 12 Puntos del Jefe</p>
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <div class="punto4-box">
+                        <h3>📚 El Punto 4 del Jefe: Capacitación Continua</h3>
+                        <p style="font-size: 1.2rem; font-weight: 600; color: var(--color-navy); margin-bottom: 1rem;">"Un jefe, nunca deja de estudiar, y mantiene actualizado y capacitado a todo su personal."</p>
+                        <p>Este diplomado es la herramienta perfecta para cumplir con este compromiso fundamental, permitiendo que el talento femenino de tu equipo escale a posiciones estratégicas <span class="highlight">sin descuidar sus responsabilidades actuales</span>.</p>
+                    </div>
+                    <div class="punto4-box">
+                        <h3>🚀 Transformación de Liderazgo</h3>
+                        <p>El programa está diseñado para convertir la gestión operativa en <span class="highlight">liderazgo de alto impacto</span>, fortaleciendo las habilidades de tus colaboradoras para posiciones directivas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CRONOGRAMA -->
+        <section style="background: var(--color-white);">
+            <div class="container">
+                <h2 class="section-title">Cronograma de la Convocatoria</h2>
+                <p class="section-subtitle">Fechas clave del diplomado</p>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">📝</div>
+                        <div class="timeline-content">
+                            <div class="timeline-label">Postulación</div>
+                            <div class="timeline-date">Insertar Fecha</div>
+                            <div class="timeline-description">Abre la convocatoria</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">✅</div>
+                        <div class="timeline-content">
+                            <div class="timeline-label">Resultados</div>
+                            <div class="timeline-date">Insertar Fecha</div>
+                            <div class="timeline-description">Aceptación de postulantes</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">🎓</div>
+                        <div class="timeline-content">
+                            <div class="timeline-label">Inicio de Clases</div>
+                            <div class="timeline-date">Insertar Fecha</div>
+                            <div class="timeline-description">Comienza el diplomado</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">🏆</div>
+                        <div class="timeline-content">
+                            <div class="timeline-label">Término</div>
+                            <div class="timeline-date">Insertar Fecha</div>
+                            <div class="timeline-description">Celebramos la graduación</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BENEFICIOS -->
+        <section class="section-benefits">
+            <div class="container">
+                <h2 class="section-title">Beneficios Exclusivos</h2>
+                <p class="section-subtitle">Lo que obtendrás al participar</p>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🎁</div>
+                        <h3>Beca del 100%</h3>
+                        <p>Sin costo para ti ni para tu área. Una inversión de la empresa en tu desarrollo.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🏅</div>
+                        <h3>Validez Institucional</h3>
+                        <p>Respaldo académico de la Universidad Insurgentes para tu CV.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">⚡</div>
+                        <h3>Flexibilidad Total</h3>
+                        <p>Módulos asincronónicos. Estudia a tu ritmo durante 3 meses.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMULARIO -->
+        <section id="formulario" style="background: var(--color-white);">
+            <div class="container">
+                <h2 class="section-title">Postúlate Ahora</h2>
+                <p class="section-subtitle">Completa el formulario y sé parte de esta transformación</p>
+                <div style="max-width: 1000px; margin: 0 auto; background: var(--color-white); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden;">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe2truzmwiyRi4LfASQ9Ll4pbwCX_VbhAcaPXgGL3LqG0lO8A/viewform?embedded=true" width="100%" height="3351" frameborder="0" marginheight="0" marginwidth="0">Cargando formulario…</iframe>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- SECCIÓN JUEGOS -->
+    <div id="games" class="section">
+        <section class="games-section">
+            <div class="container">
+                <button class="back-link" onclick="showSection('landing')">← Volver a Landing</button>
+                
+                <div id="gamesMenu" class="game-selection">
+                    <div class="game-card">
+                        <div class="game-icon">✍️</div>
+                        <h2>Completar Palabras</h2>
+                        <p>Rellena los espacios en blanco con las palabras correctas.</p>
+                        <button class="game-button" onclick="startGame('word')">Jugar Ahora</button>
+                    </div>
+                    <div class="game-card">
+                        <div class="game-icon">🎯</div>
+                        <h2>Selección Múltiple</h2>
+                        <p>Responde preguntas sobre los 12 Puntos del Jefe.</p>
+                        <button class="game-button" onclick="startGame('multiple')">Jugar Ahora</button>
+                    </div>
+                    <div class="game-card">
+                        <div class="game-icon">⚡</div>
+                        <h2>Quiz Dinámico</h2>
+                        <p>El quiz más desafiante. ¡Demuestra tu poder!</p>
+                        <button class="game-button" onclick="startGame('quiz')">Jugar Ahora</button>
+                    </div>
+                </div>
+
+                <div id="wordGame" class="game-container" style="display:none;">
+                    <button class="back-link" onclick="backToGamesMenu()">← Volver</button>
+                    <div class="game-header">
+                        <h2>✍️ Completar Palabras</h2>
+                    </div>
+                    <div id="wordContent"></div>
+                </div>
+
+                <div id="mcGame" class="game-container" style="display:none;">
+                    <button class="back-link" onclick="backToGamesMenu()">← Volver</button>
+                    <div class="game-header">
+                        <h2>🎯 Selección Múltiple</h2>
+                    </div>
+                    <div id="mcContent"></div>
+                </div>
+
+                <div id="quizGame" class="game-container" style="display:none;">
+                    <button class="back-link" onclick="backToGamesMenu()">← Volver</button>
+                    <div class="game-header">
+                        <h2>⚡ Quiz Dinámico</h2>
+                    </div>
+                    <div id="quizContent"></div>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="cta-button" onclick="togglePuntos()" style="background: var(--color-green); margin-right: 1rem;">📖 Ver los 12 Puntos</button>
+                    <button class="cta-button" onclick="showSection('landing')">🏠 Volver a Landing</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- MODAL 12 PUNTOS -->
+    <div id="puntosModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📚 Los 12 Puntos del Jefe</h2>
+                <button class="close-btn" onclick="togglePuntos()">×</button>
+            </div>
+            <div id="puntosGrid"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Creado por <strong>Soraida Cerón</strong> - Coordinadora Nacional de Vinculación Estudiantil | Price Shoes 👠</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Una alianza entre Universidad Insurgentes, Santander y Dalia Empower</p>
+        <button onclick="togglePuntos()">📖 Ver los 12 Puntos del Jefe</button>
+        <button onclick="showSection('games')">🎮 Ir a los Juegos</button>
+    </footer>
+
+    <script>
+        // GAME DATA
+        const wordGameData = [
+            { text: "Un jefe debe ser <strong>perfeccionista</strong> y tener muy claros los <strong>___</strong>.", answer: "resultados" },
+            { text: "Simplifica las tareas y se asegura que su personal cuente con las <strong>___</strong> adecuadas.", answer: "herramientas" },
+            { text: "Un jefe debe asignar mensualmente <strong>___</strong> y metas claras a su personal.", answer: "objetivos" },
+            { text: "Nunca deja de estudiar, y mantiene <strong>___</strong> y capacitado a todo su personal.", answer: "actualizado" },
+            { text: "Usa más zanahorias que <strong>___</strong>, reconociendo el esfuerzo de su equipo.", answer: "palos" }
+        ];
+
+        const multipleChoiceData = [
+            { question: "¿Cuál es el Punto 1 del Jefe?", options: ["Ser perfeccionista y tener claros los resultados", "Nunca dejar de estudiar", "Escuchar a su gente", "Dar un plan de crecimiento"], correct: 0 },
+            { question: "¿Qué debe hacer un jefe con objetivos y metas?", options: ["Asignarlos una sola vez al año", "Asignarlos mensualmente y hacer cierre de mes", "No asignarlos", "Comunicarlos verbalmente"], correct: 1 },
+            { question: "¿Con qué frecuencia escuchar al primer nivel?", options: ["Una vez cada 60 días", "Una vez cada 30 días", "Una vez cada 15 días como máximo", "Diariamente"], correct: 2 },
+            { question: "¿Cuál es el Punto 11?", options: ["Usar más zanahorias", "Darle un plan de crecimiento", "Hacer que tenga oportunidad de hacer lo que sabe", "Comunicación abierta"], correct: 1 },
+            { question: "¿Qué debe identificar según Punto 11?", options: ["Solo problemas", "La diferencia (GAP) entre perfil ideal y actual", "Solo mejores colaboradores", "Vacaciones"], correct: 1 }
+        ];
+
+        const quizData = [
+            { question: "Un jefe debe cumplir reglas de...", options: ["Sus amigos", "Lo que crea", "Puntos de Gestión y códigos", "Lo que personal quiera"], correct: 2 },
+            { question: "Punto 12 característica:", options: ["Solo su oficina", "Su gente y bienestar del grupo", "Sin comunicación", "Trabajo individual"], correct: 1 },
+            { question: "Punto 5 habla sobre...", options: ["Simplificar tareas", "Escuchar gente", "Calificar trabajo", "Zanahorias y palos"], correct: 2 },
+            { question: "Aprovechar expertos...", options: ["Despedirlos", "Guardar conocimiento", "Enseñar mejores prácticas", "Ignorar sugerencias"], correct: 2 },
+            { question: "Hacer diario lo que mejor sabe:", options: ["Tareas que no domina", "Lo que mejor sabe hacer", "Cambiar constantemente", "Sin responsabilidades"], correct: 1 }
+        ];
+
+        const puntosDelJefe = [
+            { numero: 1, titulo: "Perfeccionista con Resultados", contenido: "Un jefe debe ser perfeccionista y tener muy claros los resultados que se esperan de todos y cada uno de los puestos a su cargo." },
+            { numero: 2, titulo: "Herramientas Adecuadas", contenido: "Simplifica las tareas y se asegura que su personal cuente con las herramientas adecuadas y en óptimas condiciones." },
+            { numero: 3, titulo: "Objetivos y Metas Claras", contenido: "Debe asignar mensualmente objetivos y metas claras a su personal, en especial a los mejores talentos." },
+            { numero: 4, titulo: "Capacitación Continua", contenido: "Nunca deja de estudiar, y mantiene actualizado y capacitado a todo su personal." },
+            { numero: 5, titulo: "Zanahorias y Reconocimiento", contenido: "Usa más zanahorias que palos, reconociendo el esfuerzo y dedicación de su equipo de trabajo." },
+            { numero: 6, titulo: "Calificación y Evaluación", contenido: "Califica periódicamente el trabajo de su gente y cuenta con un listado ordenado del más al menos productivo." },
+            { numero: 7, titulo: "Tiempo para Escuchar", contenido: "Debe tener el tiempo necesario para escuchar a su gente, máximo una vez cada 15 días para primer nivel." },
+            { numero: 8, titulo: "Expertos y Enseñanza", contenido: "Aprovecha a los expertos y enseña a su gente sobre todo las mejores prácticas." },
+            { numero: 9, titulo: "Cumplimiento de Reglas", contenido: "Debe cumplir y hacer cumplir las reglas de Puntos de Gestión y códigos de la empresa." },
+            { numero: 10, titulo: "Hacer lo que Mejor Saben", contenido: "Debe hacer que su gente tenga oportunidad de hacer diario lo que mejor sabe hacer." },
+            { numero: 11, titulo: "Plan de Crecimiento", contenido: "Debe darle un plan de crecimiento y desarrollo, identificando la diferencia (GAP)." },
+            { numero: 12, titulo: "Impecabilidad y Bienestar", contenido: "Es impecable en su actuación y se preocupa por su gente y bienestar del grupo en todos los aspectos." }
+        ];
+
+        let currentGame = null;
+        let currentQuestion = 0;
+        let quizScore = 0;
+
+        function showSection(section) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(section).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function startGame(game) {
+            currentGame = game;
+            currentQuestion = 0;
+            quizScore = 0;
+            document.getElementById('gamesMenu').style.display = 'none';
+            
+            if (game === 'word') {
+                loadWordGame();
+            } else if (game === 'multiple') {
+                loadMultipleChoice();
+            } else if (game === 'quiz') {
+                loadQuiz();
+            }
+        }
+
+        function backToGamesMenu() {
+            document.getElementById('wordGame').style.display = 'none';
+            document.getElementById('mcGame').style.display = 'none';
+            document.getElementById('quizGame').style.display = 'none';
+            document.getElementById('gamesMenu').style.display = 'grid';
+            currentGame = null;
+        }
+
+        function loadWordGame() {
+            document.getElementById('wordGame').style.display = 'block';
+            let html = '';
+            wordGameData.forEach((item, idx) => {
+                html += `<div style="background: var(--color-gray-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;"><p>${item.text}</p><div style="display: flex; gap: 1rem; margin-top: 1rem;"><input type="text" id="wordInput${idx}" placeholder="Palabra" style="flex: 1; padding: 0.8rem; border: 2px solid #ddd; border-radius: 6px;"/><button onclick="checkWord(${idx})" style="background: var(--color-magenta); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 6px; cursor: pointer; font-weight: 700;">Verificar</button></div><div id="wordFeedback${idx}"></div></div>`;
+            });
+            document.getElementById('wordContent').innerHTML = html;
+        }
+
+        function checkWord(idx) {
+            const input = document.getElementById(`wordInput${idx}`).value.toLowerCase().trim();
+            const correct = wordGameData[idx].answer.toLowerCase();
+            const fb = document.getElementById(`wordFeedback${idx}`);
+            
+            if (input === correct) {
+                fb.style.cssText = 'background: rgba(168, 210, 73, 0.2); color: #4a7c2f; border: 2px solid var(--color-green); padding: 0.8rem; border-radius: 6px; margin-top: 1rem; display: block; font-weight: 600;';
+                fb.textContent = '✅ ¡Correcto!';
+                document.getElementById(`wordInput${idx}`).disabled = true;
+            } else {
+                fb.style.cssText = 'background: rgba(234, 0, 138, 0.2); color: var(--color-magenta); border: 2px solid var(--color-magenta); padding: 0.8rem; border-radius: 6px; margin-top: 1rem; display: block; font-weight: 600;';
+                fb.textContent = '❌ Incorrecto';
+            }
+        }
+
+        function loadMultipleChoice() {
+            document.getElementById('mcGame').style.display = 'block';
+            const item = multipleChoiceData[currentQuestion];
+            let html = `<div style="text-align: center; color: #666; margin-bottom: 1rem;">Pregunta ${currentQuestion + 1} de ${multipleChoiceData.length}</div><div style="background: var(--color-white); padding: 1.5rem; border-radius: 8px;"><h3 style="color: var(--color-navy); margin-bottom: 1.5rem;">${item.question}</h3><div style="display: grid; gap: 1rem;">`;
+            item.options.forEach((opt, idx) => {
+                html += `<label style="background: var(--color-gray-light); padding: 1rem; border-radius: 6px; cursor: pointer; display: flex; gap: 1rem; align-items: center; transition: all 0.3s;"><input type="radio" name="mcAnswer" value="${idx}" style="width: 20px; height: 20px;"/><span>${opt}</span></label>`;
+            });
+            html += `</div><div id="mcFeedback"></div><button onclick="checkMultipleChoice()" style="width: 100%; margin-top: 1.5rem; padding: 1rem; background: var(--color-magenta); color: white; border: none; border-radius: 6px; font-weight: 700; cursor: pointer;">Verificar</button></div>`;
+            document.getElementById('mcContent').innerHTML = html;
+        }
+
+        function checkMultipleChoice() {
+            const selected = document.querySelector('input[name="mcAnswer"]:checked');
+            const fb = document.getElementById('mcFeedback');
+            
+            if (!selected) return;
+            
+            const ans = parseInt(selected.value);
+            const correct = multipleChoiceData[currentQuestion].correct;
+            
+            if (ans === correct) {
+                fb.style.cssText = 'background: rgba(168, 210, 73, 0.2); color: #4a7c2f; border: 2px solid var(--color-green); padding: 0.8rem; border-radius: 6px; margin-top: 1rem; font-weight: 600;';
+                fb.textContent = '✅ ¡Correcto!';
+                setTimeout(() => {
+                    currentQuestion++;
+                    if (currentQuestion < multipleChoiceData.length) {
+                        loadMultipleChoice();
+                    } else {
+                        document.getElementById('mcContent').innerHTML = '<div style="text-align: center; padding: 2rem;"><h2 style="color: var(--color-navy); margin-bottom: 1rem;">🎉 ¡Felicidades!</h2><p style="color: var(--color-magenta); font-weight: 600; margin-bottom: 2rem;">✨ Has terminado genial. Recuerda aplicar estos puntos en tu liderazgo actual.</p><button class="cta-button" onclick="startGame(\'multiple\')" style="background: var(--color-green); margin-right: 1rem;">Jugar Otro</button><button class="cta-button" onclick="backToGamesMenu()">Volver</button></div>';
+                    }
+                }, 1500);
+            } else {
+                fb.style.cssText = 'background: rgba(234, 0, 138, 0.2); color: var(--color-magenta); border: 2px solid var(--color-magenta); padding: 0.8rem; border-radius: 6px; margin-top: 1rem; font-weight: 600;';
+                fb.textContent = '❌ Intenta de nuevo';
+            }
+        }
+
+        function loadQuiz() {
+            document.getElementById('quizGame').style.display = 'block';
+            const item = quizData[currentQuestion];
+            const progress = ((currentQuestion) / quizData.length) * 100;
+            
+            let html = `<div class="quiz-progress"><div class="progress-bar"><div class="progress-fill" style="width: ${progress}%"></div></div><div style="text-align: center; color: var(--color-navy); font-weight: 600;">Pregunta ${currentQuestion + 1} de ${quizData.length}</div></div><div style="background: var(--color-white); padding: 1.5rem; border-radius: 8px;"><h3 style="color: var(--color-navy); margin-bottom: 1.5rem;">${item.question}</h3><div class="quiz-options">`;
+            
+            item.options.forEach((opt, idx) => {
+                html += `<div class="quiz-option" onclick="selectQuizOption(${idx}, this)" style="padding: 1rem; cursor: pointer; background: var(--color-gray-light); border-radius: 6px; border: 2px solid transparent; transition: all 0.3s;">${opt}</div>`;
+            });
+            
+            html += `</div><button class="quiz-submit" id="quizSubmit" onclick="submitQuizAnswer()" disabled>${currentQuestion === quizData.length - 1 ? 'Terminar' : 'Siguiente'}</button></div>`;
+            document.getElementById('quizContent').innerHTML = html;
+        }
+
+        let selectedQuizIdx = null;
+
+        function selectQuizOption(idx, el) {
+            document.querySelectorAll('.quiz-option').forEach(e => e.style.cssText = 'padding: 1rem; cursor: pointer; background: var(--color-gray-light); border-radius: 6px; border: 2px solid transparent;');
+            el.style.cssText = 'padding: 1rem; cursor: pointer; background: rgba(234, 0, 138, 0.1); border: 2px solid var(--color-magenta); border-radius: 6px;';
+            selectedQuizIdx = idx;
+            document.getElementById('quizSubmit').disabled = false;
+        }
+
+        function submitQuizAnswer() {
+            if (selectedQuizIdx === null) return;
+            const correct = quizData[currentQuestion].correct;
+            
+            if (selectedQuizIdx === correct) {
+                quizScore++;
+                document.querySelectorAll('.quiz-option')[selectedQuizIdx].style.cssText = 'padding: 1rem; background: rgba(168, 210, 73, 0.2); border: 2px solid var(--color-green); border-radius: 6px; cursor: pointer;';
+            } else {
+                document.querySelectorAll('.quiz-option')[selectedQuizIdx].style.cssText = 'padding: 1rem; background: rgba(255, 107, 107, 0.2); border: 2px solid #ff6b6b; border-radius: 6px; cursor: pointer;';
+                document.querySelectorAll('.quiz-option')[correct].style.cssText = 'padding: 1rem; background: rgba(168, 210, 73, 0.2); border: 2px solid var(--color-green); border-radius: 6px; cursor: pointer;';
+            }
+            
+            document.getElementById('quizSubmit').disabled = true;
+            currentQuestion++;
+            
+            setTimeout(() => {
+                if (currentQuestion < quizData.length) {
+                    selectedQuizIdx = null;
+                    loadQuiz();
+                } else {
+                    showQuizResults();
+                }
+            }, 1500);
+        }
+
+        function showQuizResults() {
+            const pct = Math.round((quizScore / quizData.length) * 100);
+            let msg = '', emoji = '', adv = '';
+            
+            if (pct === 100) { msg = '¡ERES EXPERTO!'; emoji = '🏆'; adv = 'Dominio excepcional'; }
+            else if (pct >= 80) { msg = '¡Excelente!'; emoji = '⭐'; adv = 'Dominas muy bien'; }
+            else if (pct >= 60) { msg = '¡Buen trabajo!'; emoji = '👍'; adv = 'Tienes una buena base'; }
+            else { msg = 'Necesitas estudiar más'; emoji = '📚'; adv = 'Repasa los puntos'; }
+            
+            document.getElementById('quizContent').innerHTML = `<div style="padding: 2rem; text-align: center;"><h2 style="color: var(--color-navy); margin-bottom: 1rem;">✨ Has Terminado Genial ✨</h2><div style="background: linear-gradient(135deg, rgba(234, 0, 138, 0.1) 0%, rgba(168, 210, 73, 0.1) 100%); padding: 2rem; border-radius: 12px; margin-bottom: 2rem; border: 2px solid var(--color-magenta);"><div style="font-size: 3.5rem; margin-bottom: 1rem;">${emoji}</div><h3 style="color: var(--color-navy); font-size: 1.8rem; margin-bottom: 0.5rem;">${msg}</h3><p style="color: #666; font-size: 1.1rem;">${quizScore} de ${quizData.length} correctas</p><div style="font-size: 3rem; color: var(--color-magenta); font-weight: 800; margin: 1rem 0;">${pct}%</div></div><div style="background: var(--color-gray-light); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 5px solid var(--color-magenta);"><h4 style="color: var(--color-navy); margin-bottom: 0.8rem;">💡 Consejo:</h4><p style="color: #555;">${adv}</p><p style="color: var(--color-magenta); font-weight: 600; margin-top: 1rem;">Recuerda aplicar estos puntos en tu liderazgo actual. 🚀</p></div><button class="cta-button" onclick="startGame('quiz')" style="background: var(--color-blue-bright); margin-right: 1rem;">Jugar Otro</button><button class="cta-button" onclick="backToGamesMenu()" style="background: var(--color-green);">Volver</button></div>`;
+        }
+
+        function togglePuntos() {
+            const modal = document.getElementById('puntosModal');
+            modal.classList.toggle('active');
+            if (modal.classList.contains('active')) {
+                renderPuntos();
+            }
+        }
+
+        function renderPuntos() {
+            const grid = document.getElementById('puntosGrid');
+            const colors = [
+                { bg: 'rgba(234, 0, 138, 0.1)', border: 'var(--color-magenta)' },
+                { bg: 'rgba(168, 210, 73, 0.1)', border: 'var(--color-green)' },
+                { bg: 'rgba(35, 61, 255, 0.1)', border: 'var(--color-blue-bright)' },
+                { bg: 'rgba(248, 221, 78, 0.1)', border: 'var(--color-yellow)' }
+            ];
+            
+            let html = '';
+            puntosDelJefe.forEach((p, i) => {
+                const c = colors[i % 4];
+                html += `<div class="punto-card" style="background: ${c.bg}; border-color: ${c.border};"><div style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1rem;"><div style="background: ${c.border}; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: Poppins; font-size: 1.5rem; font-weight: 800; flex-shrink: 0;">${p.numero}</div><h3 style="color: var(--color-navy); font-family: Poppins; font-size: 1.1rem; margin: 0;">${p.titulo}</h3></div><p style="color: #555; line-height: 1.7; margin: 0;">${p.contenido}</p></div>`;
+            });
+            grid.innerHTML = html;
+        }
+
+        document.addEventListener('click', (e) => {
+            const modal = document.getElementById('puntosModal');
+            if (e.target === modal) modal.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
